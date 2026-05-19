@@ -106,10 +106,12 @@ public class SortingExercise {
         //       Or use a lambda: (a, b) -> a.title.compareTo(b.title)
         // -------------------------------------------------------
 
-        // YOUR CODE HERE
+//        books.sort(Comparator.comparing(book -> book.title));
+        List<Book> booksSortedByTitle = books.stream().sorted(Comparator.comparing(book -> book.title)).toList();
 
 
-        printBooks("TODO 1 — Sorted by Title (A → Z)", books);
+
+        printBooks("TODO 1 — Sorted by Title (A → Z)", booksSortedByTitle);
 
         // -------------------------------------------------------
         // TODO 2 — Sort by TITLE (String) — Z → A (reversed)
