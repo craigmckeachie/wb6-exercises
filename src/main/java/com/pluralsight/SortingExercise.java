@@ -106,6 +106,7 @@ public class SortingExercise {
         //       Or use a lambda: (a, b) -> a.title.compareTo(b.title)
         // -------------------------------------------------------
 
+//        books.sort((book1,book2)-> book1.title.compareTo(book2.title));
 //        books.sort(Comparator.comparing(book -> book.title));
         List<Book> booksSortedByTitle = books.stream().sorted(Comparator.comparing(book -> book.title)).toList();
 
@@ -119,7 +120,8 @@ public class SortingExercise {
         // Hint: Use Comparator.reversed() or flip the compareTo.
         // -------------------------------------------------------
 
-        // YOUR CODE HERE
+//       books.sort(Comparator.comparing(book -> book.title, Comparator.reverseOrder()));
+        books.sort(Comparator.comparing((Book book) -> book.title).reversed());
 
 
         printBooks("TODO 2 — Sorted by Title (Z → A)", books);
@@ -133,6 +135,8 @@ public class SortingExercise {
         // -------------------------------------------------------
 
         // YOUR CODE HERE
+//        books.sort((a, b) -> a.author.split(" ")[1].compareTo(b.author.split(" ")[1]));
+        books.sort(Comparator.comparing(book -> book.author.split(" ")[1]));
 
 
         printBooks("TODO 3 — Sorted by Author Last Name (A → Z)", books);
@@ -144,6 +148,8 @@ public class SortingExercise {
         // -------------------------------------------------------
 
         // YOUR CODE HERE
+        books.sort((book1, book2) -> Integer.compare(book1.year, book2.year));
+        books.sort(Comparator.comparingInt(book -> book.year));
 
 
         printBooks("TODO 4 — Sorted by Year (oldest first)", books);
